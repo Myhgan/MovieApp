@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:background="@color/black"
+    android:layout_height="match_parent">
+
+    <!-- ExoPlayer View -->
+    <com.google.android.exoplayer2.ui.PlayerView
+        android:id="@+id/exoPlayerView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp" />
+
+    <!-- Back Button -->
+    <ImageView
+        android:id="@+id/backButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="16dp"
+        android:layout_alignParentStart="true"
+        android:src="@drawable/back"
+        android:layout_marginTop="24dp" />
+
+    <!-- Tab Layout for Introduction, Comments, etc. -->
+    <com.google.android.material.tabs.TabLayout
+        android:id="@+id/tabLayoutDetail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/exoPlayerView"
+        app:tabMode="fixed"
+        app:tabGravity="fill" />
+
+    <!-- Episode List RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewEpisodes"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tabLayoutDetail" />
+
+    <!-- Other details like Like, Download, Share, etc. -->
+    <LinearLayout
+        android:id="@+id/linearLayoutActions"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:weightSum="3"
+        android:layout_below="@id/recyclerViewEpisodes">
+
+        <Button
+            android:id="@+id/buttonLike"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/like"
+            android:text="Like" />
+
+        <TextView
+            android:id="@+id/textViewLikeCount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="0"
+            android:gravity="center_vertical"
+            android:layout_gravity="center_vertical"
+            android:paddingStart="8dp" />
+
+        <Button
+            android:id="@+id/buttonfavourite"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/love"
+            android:text="Favourite" />
+
+        <Button
+            android:id="@+id/buttonshring"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:drawableStart="@drawable/share"
+            android:text="Share" />
+
+    </LinearLayout>
+
+    <!-- Recommendations Section -->
+    <TextView
+        android:id="@+id/textViewRecommendations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Đề xuất cho bạn"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:layout_below="@id/linearLayoutActions" />
+
+    <!-- Recommendations RecyclerView -->
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewRecommendations"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/textViewRecommendations"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="23dp"
+        android:layout_marginBottom="4dp" />
+
+</RelativeLayout>
